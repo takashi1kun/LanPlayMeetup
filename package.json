@@ -1,0 +1,30 @@
+{
+  "name": "lan-play-meetup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "usersNames.json"
+    ]
+  },
+  "author": "AitorRosellTorralba",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "crypto": "^1.0.1",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "ipware": "^1.0.0",
+    "mongoose": "^5.4.13",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-google": "^0.12.0"
+  }
+}

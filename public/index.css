@@ -1,0 +1,115 @@
+a {
+
+			text-decoration: none !important;
+
+		}
+
+		label {
+
+			color: rgba(120, 144, 156,1.0) !important;
+
+		}
+
+		.btn:focus, .btn:active:focus, .btn.active:focus {
+
+			outline: none !important;
+			box-shadow: 0 0px 0px rgba(120, 144, 156,1.0) inset, 0 0 0px rgba(120, 144, 156,0.8);
+}
+
+
+textarea:focus,
+		input[type="text"]:focus,
+		input[type="password"]:focus,
+		input[type="datetime"]:focus,
+		input[type="datetime-local"]:focus,
+		input[type="date"]:focus,
+		input[type="month"]:focus,
+		input[type="time"]:focus,
+		input[type="week"]:focus,
+		input[type="number"]:focus,
+		input[type="email"]:focus,
+		input[type="url"]:focus,
+		input[type="search"]:focus,
+		input[type="tel"]:focus,
+		input[type="color"]:focus,
+		.uneditable-input:focus {
+		border-color: rgba(120, 144, 156,1.0); color: rgba(120, 144, 156,1.0); opacity: 0.9;
+		box-shadow: 0 0px 0px rgba(120, 144, 156,1.0) inset, 0 0 10px rgba(120, 144, 156,0.3);
+		outline: 0 none; }
+
+
+.card::-webkit-scrollbar {
+    width: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 9px;
+	background: rgba(96, 125, 139,0.99);
+}
+
+.balon1, .balon2 {
+
+	margin-top: 5px !important;
+	margin-bottom: 5px !important;
+
+	}
+
+
+.balon1 a {
+
+	background: #42a5f5;
+	color: #fff !important;
+	border-radius: 20px 20px 3px 20px;
+	display: block;
+	max-width: 75%;
+	padding: 7px 13px 7px 13px;
+
+	}
+
+.balon1:before {
+
+	content: attr(data-is);
+	position: absolute;
+	right: 15px;
+	bottom: -0.8em;
+	display: block;
+	font-size: .750rem;
+	color: rgba(84, 110, 122,1.0);
+
+	}
+
+.balon2 a {
+
+	background: #f1f1f1;
+	color: #000 !important;
+	border-radius: 20px 20px 20px 3px;
+	display: block;
+	max-width: 75%;
+	padding: 7px 13px 7px 13px;
+
+	}
+
+.balon2:before {
+
+	content: attr(data-is);
+	position: absolute;
+	left: 13px;
+	bottom: -0.8em;
+	display: block;
+	font-size: .750rem;
+	color: rgba(84, 110, 122,1.0);
+
+	}
+
+.bg-sohbet:before {
+
+	content: "";
+opacity: 0.06;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height:100%;
+	position: absolute;
+
+	}

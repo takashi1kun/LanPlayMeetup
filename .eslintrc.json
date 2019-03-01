@@ -1,0 +1,29 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": "google",
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+			"linebreak-style": 0,
+			"no-var": 0,
+			"max-len": 0,
+			"no-tabs": 0,
+			"no-trailing-spaces":0,
+			"no-unused-vars": 0,
+			"semi": 0,
+			"quotes":0,
+			"no-multi-spaces": 0,
+			"indent": 0,
+			"new-cap": 0
+    }
+}

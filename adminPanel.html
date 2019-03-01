@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="/socket.io/socket.io.js"></script>
+	<meta charset="utf-8">
+	<title>ADMIN PANEL</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" href="https://gamepedia.cursecdn.com/switch_gamepedia_en/6/64/Favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdn.jsdelivr.net/npm/fingerprintjs2@2.0.6/dist/fingerprint2.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<link href="/index.css" rel="stylesheet">
+</head>
+
+<body>
+	<table class="table table-bordered table-dark">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col"><i class="fas fa-user"></i></th>
+				<th scope="col"><i class="fas fa-calendar-alt"></i></th>
+				<th scope="col"><i class="fas fa-gamepad"></i></th>
+				<th scope="col"><i class="fas fa-comment-alt"></i></th>
+			</tr>
+		</thead>
+		<tbody id="thread">
+			</tbody>
+	</table>
+	<script type="text/javascript">
+		var socket = io();
+		socket.on('message', msg => {
+			addMessages(msg);
+		});
+
+		function addMessages(message) {
+			var timeStamp = ((typeof message.time === 'string') ? parseInt(message.time) : message.time)
+			var date = ((timeStamp != undefined) ? new Date(timeStamp) : new Date())
+			if(message.time != undefined){
+			$('#thread').prepend(
+				`
+				<tr>
+	<th scope="row"><a href="/removeMessage/`+message.time+`"><i style="color:red" class="fas fa-times"></i></a></th>
+	<td>`+ message.user +`</td>
+	<td>` + date.getHours() + ":" + n(date.getMinutes()) +" | " + date.getDate() +"/"+(date.getMonth()+1)+"/"+date.getFullYear()+`</td>
+	<td>`+message.room+`</td>
+	<td>` + message.message + `</td>
+</tr>
+`
+			);}
+		}
+		function n(n){
+	    return n > 9 ? "" + n: "0" + n;
+	}
+		function getMessages() {
+			$.get('/messages', (data) => {
+				data.forEach(addMessages);
+			})
+		}
+		setTimeout(getMessages, 100)
+	</script>
+</body>
+
+</html>
